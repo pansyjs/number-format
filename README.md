@@ -48,7 +48,7 @@ numberFormat({ template: '## [##] ##' }).format(123456)
 // >> 12 [34] 56
 ```
 
-### 参数
+### 🎉 参数
 
 |参数名|类型|默认值|描述|
 |----|-----|----|----|
@@ -57,4 +57,4 @@ numberFormat({ template: '## [##] ##' }).format(123456)
 |groupSeparator| `string`| `,` |设置千分位标识符|
 |thousandSeparator| `boolean` | `true` |是否显示千分位分隔符|
 |precision| `number` | `true`|是否显示千分位分隔符|
-|template| `string` | -- |格式化的模板|
+|template| `string` | -- |格式化的模板, 使用`#`占位|
