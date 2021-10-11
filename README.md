@@ -54,7 +54,7 @@ numberFormat({ template: '## [##] ##' }).format(123456)
 |----|-----|----|----|
 |prefix| `string` |--|设置数值的前缀|
 |suffix| `string` |--|设置数值的后缀|
-|groupSeparator| `string`| `,` |设置千分位标识符|
-|thousandSeparator| `boolean` | `true` |是否显示千分位分隔符|
-|precision| `number` | `true`|是否显示千分位分隔符|
+|thousandSeparator| `boolean` \| `string` | `true` |设置千分位分隔符, `true` 默认为 `,` |
+|decimalSeparator| `string` | `.` | 设置小数点 |
+|precision| `number` | `true`|数值精度|
 |template| `string` | -- |格式化的模板, 使用`#`占位|
