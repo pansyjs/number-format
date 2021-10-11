@@ -1,0 +1,8 @@
+{
+  "name": "@pansy/number-format",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "git@github.com:pansyjs/number-format.git",
+  "author": "wangxingkang <wang_xingkang@qq.com>",
+  "license": "MIT"
+}
