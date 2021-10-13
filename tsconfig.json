@@ -1,20 +1,16 @@
 {
   "compilerOptions": {
+    "baseUrl": ".",
     "target": "esnext",
     "moduleResolution": "node",
     "lib": ["esnext"],
     "esModuleInterop": true,
     "declaration": true,
-    "jsx": "preserve"
+    "paths": {
+      "@/*": ["./src/*"]
+    }
   },
   "exclude": [
-    "node_modules",
-    "dist",
-    "**/*.spec.ts",
-    "**/*.test.ts",
-    "lib",
-    "es",
-    "fixtures",
-    "examples"
+    "node_modules"
   ]
 }

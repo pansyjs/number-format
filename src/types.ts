@@ -1,4 +1,9 @@
-interface Options {
+export interface Separators {
+  thousandSeparator: string,
+  decimalSeparator: string,
+}
+
+export interface Options {
   /**
    * 设置数值的前缀
    */
@@ -8,12 +13,26 @@ interface Options {
    */
   suffix?: string;
   /**
-   * 设置千分位标识符
-   * @default ','
+   * 千分位分隔符
+   * @default true
    */
-  groupSeparator?: string;
-  /** 
-   * 格式化的模板 
-   * */
-  format?: string ;
+  thousandSeparator?: boolean | string;
+  /**
+   * 设置小数点
+   * @default .
+   */
+  decimalSeparator?: string;
+  /**
+   * 数值精度
+   */
+  precision?: number;
+  /**
+   * 格式化的模板
+   */
+  template?: string;
+  /**
+   * 允许负数
+   * @default true
+   */
+  allowNegative?: boolean;
 }
