@@ -3,6 +3,7 @@ import {
   getSeparators,
   validateOptions,
   splitDecimal,
+  formatWithPattern,
   applyThousandSeparator,
 } from '@/utils';
 
@@ -20,6 +21,7 @@ export function numberFormat(options: Options = {}) {
   const { thousandSeparator, decimalSeparator } = getSeparators(opts);
 
   const formatAsNumber = (numStr: string) => {
+    const hasDecimalSeparator = numStr.indexOf('.') !== -1
     let { beforeDecimal, afterDecimal, addNegation } = splitDecimal(numStr + '', opts.allowNegative);
 
     if (thousandSeparator) {
@@ -33,7 +35,7 @@ export function numberFormat(options: Options = {}) {
     /** restore negation sign */
     if (addNegation) beforeDecimal = '-' + beforeDecimal;
 
-    return beforeDecimal + afterDecimal;
+    return beforeDecimal + ((hasDecimalSeparator && decimalSeparator) || '') + afterDecimal;
   }
 
   const formatNumString = (numStr: string = '') => {
@@ -41,6 +43,8 @@ export function numberFormat(options: Options = {}) {
 
     if (numStr === '') {
       formattedValue = '';
+    } else if (typeof template === 'string' && template) {
+      formattedValue = formatWithPattern(formattedValue, template);
     } else {
       formattedValue = formatAsNumber(formattedValue);
     }
@@ -48,16 +52,8 @@ export function numberFormat(options: Options = {}) {
     return formattedValue;
   }
 
-  const format = (val: number) => {
-    if (!template) {
-      return formatNumString(val + '');
-    }
-
-    return ''
-  }
-
   return {
-    format,
+    format: (val: number) => formatNumString(val + ''),
   }
 }
 

@@ -2,6 +2,7 @@ import {
   getSeparators,
   validateOptions,
   splitDecimal,
+  formatWithPattern,
   applyThousandSeparator,
 } from '@/utils';
 
@@ -102,3 +103,21 @@ describe('applyThousandSeparator', () => {
     expect(applyThousandSeparator('123456789', '')).toEqual('123456789');
   });
 });
+
+describe('formatWithPattern', () => {
+  it(`正常使用`, () => {
+    expect(formatWithPattern('123456', '## ## ##')).toEqual('12 34 56');
+  });
+
+  it(`模板长度小于字符长度`, () => {
+    expect(formatWithPattern('123456', '## ##')).toEqual('12 34');
+  });
+
+  it(`字符长度小于模板长度`, () => {
+    expect(formatWithPattern('123', '## ##')).toEqual('12 3');
+  });
+
+  it(`包含其他字符`, () => {
+    expect(formatWithPattern('123456', '## ## [##]')).toEqual('12 34 [56]');
+  });
+})

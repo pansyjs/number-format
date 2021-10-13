@@ -66,7 +66,6 @@ export function splitDecimal(numStr: string, allowNegative: boolean = true) {
   }
 }
 
-
 const thousandsGroupRegex = /(\d)(?=(\d{3})+(?!\d))/g;
 
 export function applyThousandSeparator(
@@ -80,4 +79,16 @@ export function applyThousandSeparator(
     str.substring(0, index) +
     str.substring(index, str.length).replace(thousandsGroupRegex, '$1' + thousandSeparator)
   );
+}
+
+export function formatWithPattern(numStr: string, template: string): string {
+  let hashCount = 0;
+  const formattedNumberAry = template.split('');
+  for (let i = 0, ln = template.length; i < ln; i++) {
+    if (template[i] === '#') {
+      formattedNumberAry[i] = numStr[hashCount];
+      hashCount += 1;
+    }
+  }
+  return formattedNumberAry.join('');
 }

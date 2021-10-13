@@ -31,5 +31,10 @@ describe('numberFormat', () => {
       const result = numberFormat({ suffix: '/100' }).format(98);
       expect(result).toEqual('98/100');
     });
+
+    it(`使用模板`, () => {
+      const result = numberFormat({ template: '## [##]' }).format(123456);
+      expect(result).toEqual('12 [34]');
+    });
   });
 });
