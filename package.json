@@ -1,10 +1,16 @@
 {
   "name": "@pansy/number-format",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "lib/index.js",
+  "module": "es/index.js",
+  "types": "es/index.d.ts",
   "repository": "git@github.com:pansyjs/number-format.git",
   "author": "wangxingkang <wang_xingkang@qq.com>",
   "license": "MIT",
+  "files": [
+    "es",
+    "lib"
+  ],
   "scripts": {
     "build": "father-build",
     "test": "walrus-test",
