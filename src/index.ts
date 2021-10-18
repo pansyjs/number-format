@@ -14,7 +14,7 @@ const defaultOptions: Options = {
 }
 
 export function numberFormat(options: Options = {}) {
-  const opts = Object.assign({}, defaultOptions, options);
+  const opts = {...defaultOptions, ...options};
   validateOptions(opts);
 
   const { prefix, suffix, template } = opts;
