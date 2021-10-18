@@ -92,3 +92,21 @@ export function formatWithPattern(numStr: string, template: string): string {
   }
   return formattedNumberAry.join('');
 }
+
+export function formatPrecision(numStr: string = '', precision: number = 0) {
+  let targetLength = precision >> 0;
+
+  if (numStr.length > targetLength) {
+    numStr = numStr.slice(0, targetLength)
+  }
+
+  if (targetLength > numStr.length) {
+    targetLength = targetLength - numStr.length;
+
+    for (let i = 0; i < targetLength; i++) {
+      numStr += '0';
+    }
+  }
+
+  return numStr;
+}

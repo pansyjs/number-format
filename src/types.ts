@@ -3,15 +3,7 @@ export interface Separators {
   decimalSeparator: string,
 }
 
-export interface Options {
-  /**
-   * 设置数值的前缀
-   */
-  prefix?: string;
-  /**
-   * 设置数值的后缀
-   */
-  suffix?: string;
+export interface FormatConfig {
   /**
    * 千分位分隔符
    * @default true
@@ -26,6 +18,17 @@ export interface Options {
    * 数值精度
    */
   precision?: number;
+}
+
+export interface Options extends FormatConfig {
+  /**
+   * 设置数值的前缀
+   */
+  prefix?: string;
+  /**
+   * 设置数值的后缀
+   */
+  suffix?: string;
   /**
    * 格式化的模板
    */

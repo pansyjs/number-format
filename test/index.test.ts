@@ -22,6 +22,11 @@ describe('numberFormat', () => {
       expect(result).toEqual('-123,456');
     });
 
+    it('精度', () => {
+      const result = numberFormat({ precision: 2 }).format(123456.789);
+      expect(result).toEqual('123,456.78');
+    });
+
     it(`添加前缀`, () => {
       const result = numberFormat({ prefix: '$' }).format(123456);
       expect(result).toEqual('$123,456');

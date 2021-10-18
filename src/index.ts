@@ -3,6 +3,7 @@ import {
   getSeparators,
   validateOptions,
   splitDecimal,
+  formatPrecision,
   formatWithPattern,
   applyThousandSeparator,
 } from '@/utils';
@@ -17,7 +18,7 @@ export function numberFormat(options: Options = {}) {
   const opts = {...defaultOptions, ...options};
   validateOptions(opts);
 
-  const { prefix, suffix, template } = opts;
+  const { prefix, suffix, template, precision } = opts;
   const { thousandSeparator, decimalSeparator } = getSeparators(opts);
 
   const formatAsNumber = (numStr: string) => {
@@ -26,6 +27,10 @@ export function numberFormat(options: Options = {}) {
 
     if (thousandSeparator) {
       beforeDecimal = applyThousandSeparator(beforeDecimal, thousandSeparator);
+    }
+
+    if (precision) {
+      afterDecimal = formatPrecision(afterDecimal, precision);
     }
 
     /** add prefix and suffix */
