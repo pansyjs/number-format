@@ -6,7 +6,7 @@ import {
   formatPrecision,
   formatWithPattern,
   applyThousandSeparator,
-} from '@/utils';
+} from './utils';
 
 const defaultOptions: Options = {
   allowNegative: true,
